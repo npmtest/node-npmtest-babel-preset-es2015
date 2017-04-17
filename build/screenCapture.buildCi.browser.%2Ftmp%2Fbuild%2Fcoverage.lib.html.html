@@ -1,0 +1,643 @@
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-babel-preset-es2015/node_modules/babel-preset-es2015/lib/index.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-babel-preset-es2015">npmtest-babel-preset-es2015 (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-babel-preset-es2015/node_modules/babel-preset-es2015/lib/index.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">92.11% <small>(70 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">62.5% <small>(20 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">98.57% <small>(69 / 70)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-babel-preset-es2015/node_modules/babel-preset-es2015/lib/</a> » index.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tbody><tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+exports.__esModule = true;
+&nbsp;
+var _babelPluginTransformEs2015TemplateLiterals = require("babel-plugin-transform-es2015-template-literals");
+&nbsp;
+var _babelPluginTransformEs2015TemplateLiterals2 = _interopRequireDefault(_babelPluginTransformEs2015TemplateLiterals);
+&nbsp;
+var _babelPluginTransformEs2015Literals = require("babel-plugin-transform-es2015-literals");
+&nbsp;
+var _babelPluginTransformEs2015Literals2 = _interopRequireDefault(_babelPluginTransformEs2015Literals);
+&nbsp;
+var _babelPluginTransformEs2015FunctionName = require("babel-plugin-transform-es2015-function-name");
+&nbsp;
+var _babelPluginTransformEs2015FunctionName2 = _interopRequireDefault(_babelPluginTransformEs2015FunctionName);
+&nbsp;
+var _babelPluginTransformEs2015ArrowFunctions = require("babel-plugin-transform-es2015-arrow-functions");
+&nbsp;
+var _babelPluginTransformEs2015ArrowFunctions2 = _interopRequireDefault(_babelPluginTransformEs2015ArrowFunctions);
+&nbsp;
+var _babelPluginTransformEs2015BlockScopedFunctions = require("babel-plugin-transform-es2015-block-scoped-functions");
+&nbsp;
+var _babelPluginTransformEs2015BlockScopedFunctions2 = _interopRequireDefault(_babelPluginTransformEs2015BlockScopedFunctions);
+&nbsp;
+var _babelPluginTransformEs2015Classes = require("babel-plugin-transform-es2015-classes");
+&nbsp;
+var _babelPluginTransformEs2015Classes2 = _interopRequireDefault(_babelPluginTransformEs2015Classes);
+&nbsp;
+var _babelPluginTransformEs2015ObjectSuper = require("babel-plugin-transform-es2015-object-super");
+&nbsp;
+var _babelPluginTransformEs2015ObjectSuper2 = _interopRequireDefault(_babelPluginTransformEs2015ObjectSuper);
+&nbsp;
+var _babelPluginTransformEs2015ShorthandProperties = require("babel-plugin-transform-es2015-shorthand-properties");
+&nbsp;
+var _babelPluginTransformEs2015ShorthandProperties2 = _interopRequireDefault(_babelPluginTransformEs2015ShorthandProperties);
+&nbsp;
+var _babelPluginTransformEs2015DuplicateKeys = require("babel-plugin-transform-es2015-duplicate-keys");
+&nbsp;
+var _babelPluginTransformEs2015DuplicateKeys2 = _interopRequireDefault(_babelPluginTransformEs2015DuplicateKeys);
+&nbsp;
+var _babelPluginTransformEs2015ComputedProperties = require("babel-plugin-transform-es2015-computed-properties");
+&nbsp;
+var _babelPluginTransformEs2015ComputedProperties2 = _interopRequireDefault(_babelPluginTransformEs2015ComputedProperties);
+&nbsp;
+var _babelPluginTransformEs2015ForOf = require("babel-plugin-transform-es2015-for-of");
+&nbsp;
+var _babelPluginTransformEs2015ForOf2 = _interopRequireDefault(_babelPluginTransformEs2015ForOf);
+&nbsp;
+var _babelPluginTransformEs2015StickyRegex = require("babel-plugin-transform-es2015-sticky-regex");
+&nbsp;
+var _babelPluginTransformEs2015StickyRegex2 = _interopRequireDefault(_babelPluginTransformEs2015StickyRegex);
+&nbsp;
+var _babelPluginTransformEs2015UnicodeRegex = require("babel-plugin-transform-es2015-unicode-regex");
+&nbsp;
+var _babelPluginTransformEs2015UnicodeRegex2 = _interopRequireDefault(_babelPluginTransformEs2015UnicodeRegex);
+&nbsp;
+var _babelPluginCheckEs2015Constants = require("babel-plugin-check-es2015-constants");
+&nbsp;
+var _babelPluginCheckEs2015Constants2 = _interopRequireDefault(_babelPluginCheckEs2015Constants);
+&nbsp;
+var _babelPluginTransformEs2015Spread = require("babel-plugin-transform-es2015-spread");
+&nbsp;
+var _babelPluginTransformEs2015Spread2 = _interopRequireDefault(_babelPluginTransformEs2015Spread);
+&nbsp;
+var _babelPluginTransformEs2015Parameters = require("babel-plugin-transform-es2015-parameters");
+&nbsp;
+var _babelPluginTransformEs2015Parameters2 = _interopRequireDefault(_babelPluginTransformEs2015Parameters);
+&nbsp;
+var _babelPluginTransformEs2015Destructuring = require("babel-plugin-transform-es2015-destructuring");
+&nbsp;
+var _babelPluginTransformEs2015Destructuring2 = _interopRequireDefault(_babelPluginTransformEs2015Destructuring);
+&nbsp;
+var _babelPluginTransformEs2015BlockScoping = require("babel-plugin-transform-es2015-block-scoping");
+&nbsp;
+var _babelPluginTransformEs2015BlockScoping2 = _interopRequireDefault(_babelPluginTransformEs2015BlockScoping);
+&nbsp;
+var _babelPluginTransformEs2015TypeofSymbol = require("babel-plugin-transform-es2015-typeof-symbol");
+&nbsp;
+var _babelPluginTransformEs2015TypeofSymbol2 = _interopRequireDefault(_babelPluginTransformEs2015TypeofSymbol);
+&nbsp;
+var _babelPluginTransformEs2015ModulesCommonjs = require("babel-plugin-transform-es2015-modules-commonjs");
+&nbsp;
+var _babelPluginTransformEs2015ModulesCommonjs2 = _interopRequireDefault(_babelPluginTransformEs2015ModulesCommonjs);
+&nbsp;
+var _babelPluginTransformEs2015ModulesSystemjs = require("babel-plugin-transform-es2015-modules-systemjs");
+&nbsp;
+var _babelPluginTransformEs2015ModulesSystemjs2 = _interopRequireDefault(_babelPluginTransformEs2015ModulesSystemjs);
+&nbsp;
+var _babelPluginTransformEs2015ModulesAmd = require("babel-plugin-transform-es2015-modules-amd");
+&nbsp;
+var _babelPluginTransformEs2015ModulesAmd2 = _interopRequireDefault(_babelPluginTransformEs2015ModulesAmd);
+&nbsp;
+var _babelPluginTransformEs2015ModulesUmd = require("babel-plugin-transform-es2015-modules-umd");
+&nbsp;
+var _babelPluginTransformEs2015ModulesUmd2 = _interopRequireDefault(_babelPluginTransformEs2015ModulesUmd);
+&nbsp;
+var _babelPluginTransformRegenerator = require("babel-plugin-transform-regenerator");
+&nbsp;
+var _babelPluginTransformRegenerator2 = _interopRequireDefault(_babelPluginTransformRegenerator);
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
+&nbsp;
+function preset(context) {
+  var opts = arguments.length &gt; 1 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered">arguments[1] !== undefined </span>? <span class="branch-0 cbranch-no" title="branch not covered">arguments[1] </span>: {};
+&nbsp;
+  var moduleTypes = ["commonjs", "amd", "umd", "systemjs"];
+  var loose = false;
+  var modules = "commonjs";
+  var spec = false;
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken">E</span>if (opts !== undefined) {
+    <span class="missing-if-branch" title="if path not taken">I</span>if (opts.loose !== undefined) <span class="cstat-no" title="statement not covered">loose = opts.loose;</span>
+    <span class="missing-if-branch" title="if path not taken">I</span>if (opts.modules !== undefined) <span class="cstat-no" title="statement not covered">modules = opts.modules;</span>
+    <span class="missing-if-branch" title="if path not taken">I</span>if (opts.spec !== undefined) <span class="cstat-no" title="statement not covered">spec = opts.spec;</span>
+  }
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken">I</span>if (typeof loose !== "boolean") <span class="cstat-no" title="statement not covered">throw new Error("Preset es2015 'loose' option must be a boolean.");</span>
+  <span class="missing-if-branch" title="if path not taken">I</span>if (typeof spec !== "boolean") <span class="cstat-no" title="statement not covered">throw new Error("Preset es2015 'spec' option must be a boolean.");</span>
+  <span class="missing-if-branch" title="if path not taken">I</span>if (modules !== false &amp;&amp; moduleTypes.indexOf(modules) === -1) {
+<span class="cstat-no" title="statement not covered">    throw new Error("Preset es2015 'modules' option must be 'false' to indicate no modules\n" + "or a module type which be be one of: 'commonjs' (default), 'amd', 'umd', 'systemjs'");</span>
+  }
+&nbsp;
+  var optsLoose = { loose: loose };
+&nbsp;
+  return {
+    plugins: [[_babelPluginTransformEs2015TemplateLiterals2.default, { loose: loose, spec: spec }], _babelPluginTransformEs2015Literals2.default, _babelPluginTransformEs2015FunctionName2.default, [_babelPluginTransformEs2015ArrowFunctions2.default, { spec: spec }], _babelPluginTransformEs2015BlockScopedFunctions2.default, [_babelPluginTransformEs2015Classes2.default, optsLoose], _babelPluginTransformEs2015ObjectSuper2.default, _babelPluginTransformEs2015ShorthandProperties2.default, _babelPluginTransformEs2015DuplicateKeys2.default, [_babelPluginTransformEs2015ComputedProperties2.default, optsLoose], [_babelPluginTransformEs2015ForOf2.default, optsLoose], _babelPluginTransformEs2015StickyRegex2.default, _babelPluginTransformEs2015UnicodeRegex2.default, _babelPluginCheckEs2015Constants2.default, [_babelPluginTransformEs2015Spread2.default, optsLoose], _babelPluginTransformEs2015Parameters2.default, [_babelPluginTransformEs2015Destructuring2.default, optsLoose], _babelPluginTransformEs2015BlockScoping2.default, _babelPluginTransformEs2015TypeofSymbol2.default, modules === "commonjs" &amp;&amp; [_babelPluginTransformEs2015ModulesCommonjs2.default, optsLoose], modules === "systemjs" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered">[_babelPluginTransformEs2015ModulesSystemjs2.default, optsLoose],</span> modules === "amd" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered">[_babelPluginTransformEs2015ModulesAmd2.default, optsLoose],</span> modules === "umd" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered">[_babelPluginTransformEs2015ModulesUmd2.default, optsLoose],</span> [_babelPluginTransformRegenerator2.default, { async: false, asyncGenerators: false }]].filter(Boolean) };
+}
+&nbsp;
+var oldConfig = preset({});
+&nbsp;
+exports.default = oldConfig;
+&nbsp;
+Object.defineProperty(oldConfig, "buildPreset", {
+  configurable: true,
+  writable: true,
+&nbsp;
+  enumerable: false,
+  value: preset
+});
+module.exports = exports["default"];
+&nbsp;</pre></td></tr>
+</tbody></table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 12:07:05 GMT+0000 (UTC)</div>
+</div>
+
+
+</body></html>
