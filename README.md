@@ -1,4 +1,7 @@
-# test coverage for  [babel-preset-es2015 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmtest-babel-preset-es2015.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-babel-preset-es2015) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-babel-preset-es2015.svg)](https://travis-ci.org/npmtest/node-npmtest-babel-preset-es2015)
+# npmtest-babel-preset-es2015
+
+#### test coverage for  [babel-preset-es2015 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmtest-babel-preset-es2015.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-babel-preset-es2015) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-babel-preset-es2015.svg)](https://travis-ci.org/npmtest/node-npmtest-babel-preset-es2015)
+
 #### Babel preset for all es2015 plugins.
 
 [![NPM](https://nodei.co/npm/babel-preset-es2015.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/babel-preset-es2015)
