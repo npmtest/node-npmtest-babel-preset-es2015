@@ -1,6 +1,6 @@
 # npmtest-babel-preset-es2015
 
-#### test coverage for  [babel-preset-es2015 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmtest-babel-preset-es2015.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-babel-preset-es2015) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-babel-preset-es2015.svg)](https://travis-ci.org/npmtest/node-npmtest-babel-preset-es2015)
+#### basic test coverage for  [babel-preset-es2015 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmtest-babel-preset-es2015.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-babel-preset-es2015) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-babel-preset-es2015.svg)](https://travis-ci.org/npmtest/node-npmtest-babel-preset-es2015)
 
 #### Babel preset for all es2015 plugins.
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-babel-preset-es2015/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-babel-preset-es2015/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-babel-preset-es2015/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-babel-preset-es2015/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-babel-preset-es2015/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-babel-preset-es2015/build/coverage.html/index.html)
 
@@ -104,7 +104,8 @@
         "url": "https://github.com/babel/babel/tree/master/packages/babel-preset-es2015"
     },
     "scripts": {},
-    "version": "6.24.1"
+    "version": "6.24.1",
+    "bin": {}
 }
 ```
 
